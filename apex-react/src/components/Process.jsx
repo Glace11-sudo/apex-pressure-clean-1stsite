@@ -1,7 +1,7 @@
 const STEPS = [
   { title: 'Inspect', desc: 'We walk the property and flag surfaces that need pre-treatment or extra care.' },
   { title: 'Pre-treat', desc: 'Cleaning agents go down first to break up grime and organic growth.' },
-  { title: 'Wash', desc: 'Power, soft, or hybrid wash, chosen per surface and dialed to the material.' },
+  { title: 'Wash', desc: 'High-pressure power wash, dialed to the surface and the material.' },
   { title: 'Rinse & Protect', desc: 'Clear water rinse, plus an optional protective treatment for driveways and decks.' },
 ];
 

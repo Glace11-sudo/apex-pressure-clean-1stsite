@@ -1,18 +1,24 @@
 import { useMemo, useRef, useState } from 'react';
 import { mulberry32 } from '../lib/random';
+import { supabase } from '../lib/supabase';
 
 const DOW = ['Su', 'Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa'];
 const SLOT_TIMES = ['8:00 AM', '9:30 AM', '11:00 AM', '12:30 PM', '2:00 PM', '3:30 PM'];
 const SERVICES = [
   { value: 'Power Wash', desc: 'High-pressure clean for concrete, brick & commercial surfaces.' },
-  { value: 'Soft Wash', desc: 'Low-pressure treatment for siding, roofs & delicate surfaces.' },
-  { value: 'Hybrid Wash', desc: 'Our signature blend — not sure what you need? Start here.' },
 ];
 
 function startOfToday() {
   const d = new Date();
   d.setHours(0, 0, 0, 0);
   return d;
+}
+
+function toISODateString(d) {
+  const y = d.getFullYear();
+  const m = String(d.getMonth() + 1).padStart(2, '0');
+  const day = String(d.getDate()).padStart(2, '0');
+  return `${y}-${m}-${day}`;
 }
 
 export default function BookingWizard() {
@@ -23,6 +29,8 @@ export default function BookingWizard() {
   const [time, setTime] = useState(null);
   const [details, setDetails] = useState({ name: '', phone: '', address: '', notes: '' });
   const [confirmed, setConfirmed] = useState(false);
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(null);
 
   const today = useMemo(() => startOfToday(), []);
   const [viewYear, setViewYear] = useState(today.getFullYear());
@@ -90,7 +98,33 @@ export default function BookingWizard() {
   function goToConfirm() {
     if (!formRef.current.reportValidity()) return;
     setConfirmed(false);
+    setSubmitError(null);
     setStep(4);
+  }
+
+  async function confirmBooking() {
+    setSubmitting(true);
+    setSubmitError(null);
+    const { error } = await supabase.from('bookings').insert({
+      service,
+      service_date: toISODateString(date),
+      service_time: time,
+      name: details.name,
+      phone: details.phone,
+      address: details.address,
+      notes: details.notes || null,
+    });
+    setSubmitting(false);
+    if (error) {
+      const isRateLimit = error.message?.includes('daily limit');
+      setSubmitError(
+        isRateLimit
+          ? error.message
+          : "Something went wrong submitting your request — please call us at 443-351-8124 and we'll get you booked."
+      );
+      return;
+    }
+    setConfirmed(true);
   }
 
   return (
@@ -241,16 +275,19 @@ export default function BookingWizard() {
                   </div>
                   <h3>Estimate requested</h3>
                   <p>
-                    This is a demo booking flow — no request was actually sent. On the live site we&rsquo;d text{' '}
+                    Thanks! We&rsquo;ve got your request and will text{' '}
                     {details.phone || 'you'} to confirm {dateLabel} at {time}.
                   </p>
                 </div>
               )}
+              {submitError && <p className="form-error">{submitError}</p>}
               <div className="book-actions">
                 {!confirmed && (
                   <>
                     <button className="btn btn-ghost" onClick={() => setStep(3)}>Back</button>
-                    <button className="btn btn-primary" onClick={() => setConfirmed(true)}>Confirm request</button>
+                    <button className="btn btn-primary" disabled={submitting} onClick={confirmBooking}>
+                      {submitting ? 'Submitting…' : 'Confirm request'}
+                    </button>
                   </>
                 )}
               </div>

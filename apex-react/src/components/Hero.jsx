@@ -1,11 +1,13 @@
 import BeforeAfterSlider from './BeforeAfterSlider';
+import apexMark from '../assets/apex-mark.png';
 
 export default function Hero() {
   return (
     <section className="hero">
       <div className="wrap hero-grid">
         <div>
-          <p className="eyebrow">Power wash &middot; soft wash &middot; hybrid wash</p>
+          <img className="hero-mark" src={apexMark} alt="Apex Pressure Clean shark logo" />
+          <p className="eyebrow">Professional power washing</p>
           <h1>Grime doesn&rsquo;t stand a <em>chance</em></h1>
           <p className="lede">Reliable, professional exterior cleaning for homes and businesses across Prince George&rsquo;s County and the surrounding DMV. Free estimates, no obligation.</p>
           <div className="hero-ctas">

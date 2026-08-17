@@ -23,7 +23,7 @@ const MENUS = {
     scrollToBook: true,
   },
   services: {
-    message: 'Three: Power Wash (750+ PSI, great for concrete & commercial), Soft Wash (low-pressure, safe for siding & roofs), and Hybrid Wash — our own blend of both.',
+    message: 'Just one, and we do it well: Power Wash — 750+ PSI, great for concrete, brick & commercial surfaces.',
     options: [{ label: 'Back to menu', next: 'main' }],
   },
   area: {

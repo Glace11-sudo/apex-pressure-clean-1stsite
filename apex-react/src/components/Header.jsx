@@ -4,6 +4,7 @@ import apexMark from '../assets/apex-mark.png';
 const NAV_LINKS = [
   { href: '#services', label: 'Services' },
   { href: '#process', label: 'Process' },
+  { href: '#gallery', label: 'Gallery' },
   { href: '#area', label: 'Service Area' },
   { href: '#reviews', label: 'Reviews' },
   { href: '#book', label: 'Book Now' },

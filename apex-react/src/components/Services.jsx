@@ -5,18 +5,6 @@ const SERVICES = [
     desc: 'High-pressure water eliminates dirt, grime, mold, and mildew from tough commercial and industrial surfaces.',
     spec: '750+ PSI · commercial & industrial',
   },
-  {
-    icon: <path d="M3 9 12 3l9 6M5 9v11h14V9" />,
-    title: 'Soft Wash',
-    desc: 'A low-pressure system paired with cleaning agents lifts organic growth from delicate surfaces without damage.',
-    spec: 'Low pressure · siding, roofs & trim',
-  },
-  {
-    icon: <path d="M12 3c2.8 3.6 5 6.9 5 9.8a5 5 0 0 1-10 0C7 9.9 9.2 6.6 12 3Z" />,
-    title: 'Hybrid Wash',
-    desc: 'Our proprietary blend of both methods cuts chemical use while outperforming either technique on its own.',
-    spec: "Apex’s signature approach",
-  },
 ];
 
 export default function Services() {
@@ -25,8 +13,8 @@ export default function Services() {
       <div className="wrap">
         <div className="section-head">
           <p className="eyebrow">Services</p>
-          <h2>Three methods, matched to the job</h2>
-          <p>We choose the technique based on the surface and the buildup, not the other way around.</p>
+          <h2>One method, done right</h2>
+          <p>We specialize in high-pressure power washing, dialed in to the surface and the buildup.</p>
         </div>
         <div className="services-grid">
           {SERVICES.map((s) => (
