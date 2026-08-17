@@ -1,0 +1,7 @@
+  /* ---------- footer ---------- */
+  footer{ padding-block: 2.4rem; border-top: 1px solid var(--line); background: var(--sky-tint); }
+  .foot-grid{ display:flex; justify-content:space-between; flex-wrap:wrap; gap: 1rem; font-size: .82rem; color: var(--muted-ink); }
+  .foot-grid a{ text-decoration:none; }
+  .foot-grid a:hover{ color: var(--blue-deep); }
+  .foot-brand{ display:flex; align-items:center; gap: .6em; }
+  .foot-brand img{ width: 1.5em; height: 1.5em; flex: none; }

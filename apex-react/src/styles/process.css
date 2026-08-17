@@ -1,0 +1,23 @@
+  /* ---------- process ---------- */
+  .process{ background: var(--surface-2); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+  .process-grid{
+    display:grid; grid-template-columns: repeat(4,1fr); gap: 0;
+    counter-reset: step;
+  }
+  @media (max-width: 900px){ .process-grid{ grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 560px){ .process-grid{ grid-template-columns: 1fr; } }
+  .step{
+    padding: 1.4rem 1.5rem 1.4rem 0;
+    border-right: 1px dashed var(--line);
+    counter-increment: step;
+  }
+  .process-grid .step:last-child{ border-right:none; }
+  .step::before{
+    content: counter(step, decimal-leading-zero);
+    font-family: var(--font-mono);
+    font-size: .8rem;
+    color: var(--blue);
+    display:block; margin-bottom: .5rem;
+  }
+  .step h3{ font-size: 1rem; text-transform: uppercase; margin-bottom:.35em; }
+  .step p{ font-size: .88rem; color: var(--muted-ink); margin:0; }

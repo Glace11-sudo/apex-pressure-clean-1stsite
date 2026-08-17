@@ -1,0 +1,21 @@
+  /* ---------- service area ---------- */
+  #area{ background: var(--sky-tint); border-top: 1px solid var(--line); }
+  .area-grid{ display:grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem,4vw,3.5rem); align-items:center; }
+  @media (max-width: 860px){ .area-grid{ grid-template-columns: 1fr; } }
+  .area-chips{ display:flex; flex-wrap:wrap; gap:.6rem; margin-top: 1.4rem; }
+  .area-chip{
+    display:inline-flex; align-items:center; gap:.5em;
+    border: 1px solid var(--line);
+    background: var(--surface);
+    border-radius: 999px;
+    padding: .55em 1em;
+    font-size: .86rem;
+  }
+  .area-chip.hq{ border-color: var(--lime); background: var(--lime-tint); color: var(--lime-ink); font-weight:700; }
+  .area-chip .dot{ width:.5em; height:.5em; border-radius:50%; background: var(--blue); flex:none; }
+  .area-chip.hq .dot{ background: var(--lime-deep); }
+  .area-canvas-wrap{
+    border: 1px solid var(--line); border-radius: var(--radius);
+    background: var(--surface); padding: 1rem;
+  }
+  .area-canvas-wrap canvas{ width:100%; aspect-ratio: 4/3; border-radius:6px; }

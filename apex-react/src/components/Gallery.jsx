@@ -7,16 +7,14 @@ import commercialLots from '../assets/gallery/commercial-lots.svg';
 import homes from '../assets/gallery/homes.svg';
 import dumpsterPads from '../assets/gallery/dumpster-pads.svg';
 import sidewalks from '../assets/gallery/sidewalks.svg';
-import commercialFleets from '../assets/gallery/commercial-fleets.svg';
 
 const CATEGORIES = [
   { slug: 'driveways', label: 'Driveways', spec: 'Concrete & pavers', art: driveways },
   { slug: 'patios-walkways', label: 'Patios & Walkways', spec: 'Stone & brick', art: patiosWalkways },
-  { slug: 'commercial-work', label: 'Commercial Work', spec: 'Lots, storefronts & high-traffic surfaces', art: commercialLots },
+  { slug: 'commercial-projects', label: 'Commercial Projects', spec: 'Lots, storefronts, trucks & fleets', art: commercialLots },
   { slug: 'homes', label: 'Homes', spec: 'Siding, brick & stucco', art: homes },
   { slug: 'dumpster-pads', label: 'Dumpster Pads', spec: 'Grease & grime removal', art: dumpsterPads },
   { slug: 'sidewalks', label: 'Sidewalks', spec: 'Municipal & HOA', art: sidewalks },
-  { slug: 'commercial-fleets', label: 'Commercial Fleets', spec: 'Trucks, buses & equipment', art: commercialFleets },
 ];
 
 export default function Gallery() {

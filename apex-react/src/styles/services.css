@@ -1,0 +1,34 @@
+  /* ---------- services ---------- */
+  .section-head{ max-width: 60ch; margin-bottom: clamp(2rem,3vw,2.6rem); }
+  .section-head h2{ font-size: clamp(1.7rem, 2vw + 1rem, 2.35rem); }
+  .section-head p{ color: var(--muted-ink); font-size: 1.02rem; }
+
+  .services-grid{
+    display:grid;
+    grid-template-columns: 1fr;
+    max-width: 380px;
+    gap: 1rem;
+  }
+  .service-card{
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    padding: 1.6rem 1.4rem;
+    display:flex; flex-direction:column; gap: .9rem;
+  }
+  .service-card .icon{
+    width: 2.4rem; height: 2.4rem;
+    border-radius: 8px;
+    background: var(--sky-tint);
+    color: var(--blue-deep);
+    display:flex; align-items:center; justify-content:center;
+  }
+  .service-card .icon svg{ width: 1.3rem; height: 1.3rem; }
+  .service-card h3{ font-size: 1.05rem; text-transform: uppercase; letter-spacing:.01em; }
+  .service-card p{ font-size: .92rem; color: var(--muted-ink); margin:0; }
+  .service-card .spec{
+    font-family: var(--font-mono);
+    font-size: .72rem;
+    color: var(--blue-deep);
+    letter-spacing: .03em;
+  }

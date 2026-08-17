@@ -1,0 +1,72 @@
+  /* ---------- base ---------- */
+  *{ box-sizing: border-box; }
+  html{ scroll-behavior: smooth; }
+  body{
+    margin:0;
+    background:
+      radial-gradient(circle at 10% 8%, rgba(4,126,242,0.12), transparent 30%),
+      radial-gradient(circle at 88% 14%, rgba(143,196,49,0.12), transparent 28%),
+      radial-gradient(circle at 22% 78%, rgba(143,196,49,0.10), transparent 32%),
+      radial-gradient(circle at 92% 88%, rgba(4,126,242,0.10), transparent 30%),
+      radial-gradient(circle at 55% 45%, rgba(4,126,242,0.06), transparent 40%),
+      var(--paper);
+    background-attachment: fixed;
+    color: var(--ink);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+  img,canvas{ display:block; max-width:100%; }
+  a{ color: inherit; }
+  h1,h2,h3{
+    font-family: var(--font-display);
+    text-wrap: balance;
+    margin: 0 0 .4em;
+    letter-spacing: -0.01em;
+  }
+  p{ text-wrap: pretty; }
+  .wrap{
+    max-width: 1120px;
+    margin-inline: auto;
+    padding-inline: clamp(1.25rem, 4vw, 2.5rem);
+  }
+  section{ padding-block: clamp(3rem, 6vw, 5.5rem); }
+  .eyebrow{
+    font-family: var(--font-mono);
+    font-size: .72rem;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--blue-deep);
+    display:inline-flex;
+    align-items:center;
+    gap:.5em;
+    margin-bottom: .9em;
+  }
+  .eyebrow::before{
+    content:"";
+    width: 1.4em; height: 2px;
+    background: var(--blue);
+  }
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:.55em;
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: .95rem;
+    letter-spacing: .02em;
+    padding: .9em 1.5em;
+    border-radius: 999px;
+    border: 1px solid transparent;
+    cursor:pointer;
+    text-decoration:none;
+    transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease;
+  }
+  .btn:focus-visible{ outline: 3px solid var(--blue); outline-offset: 2px; }
+  .btn-primary{ background: var(--lime); color: var(--lime-ink); box-shadow: var(--shadow); }
+  .btn-primary:hover{ background: var(--lime-deep); transform: translateY(-1px); }
+  .btn-ghost{ background: transparent; color: var(--ink); border-color: var(--line); }
+  .btn-ghost:hover{ border-color: var(--blue); color: var(--blue-deep); }
+  .btn-outline-light{ background: transparent; color: #fff; border-color: rgba(255,255,255,.55); }
+  .btn-outline-light:hover{ border-color: var(--lime); color: var(--lime); }
+  .btn:disabled{ opacity:.45; cursor:not-allowed; transform:none !important; }
