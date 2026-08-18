@@ -46,7 +46,7 @@
     touch-action: none;
     cursor: ew-resize;
   }
-  .slider canvas{ position:absolute; inset:0; width:100%; height:100%; }
+  .slider img{ position:absolute; inset:0; width:100%; height:100%; object-fit: cover; }
   #layer-after{ clip-path: inset(0 calc(100% - var(--split, 46%)) 0 0); will-change: clip-path; }
   .slider-tag{
     position:absolute; top: .8rem;
